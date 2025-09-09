@@ -1,70 +1,72 @@
-Desafio Front-End: Galeria de Fotos dos Rovers de Marte
+UniverseEx - Galeria de Fotos dos Rovers de Marte
 
-Este projeto foi desenvolvido como parte do processo seletivo para a vaga de Front-End na Valcann Cloud Intelligence. A aplicação consiste numa página interativa que permite aos utilizadores explorar imagens capturadas pelos rovers da NASA em Marte.
+Este projeto é uma solução para o desafio de front-end proposto pela Valcann Cloud Intelligence. A aplicação permite aos utilizadores visualizar, filtrar e navegar por fotografias de Marte, capturadas pelos rovers da NASA, através de uma interface limpa e reativa.
 
-Funcionalidades Implementadas
-A aplicação cumpre todos os requisitos obrigatórios do desafio:
+Funcionalidades Principais:
+Galeria de Imagens Dinâmica: As imagens são consumidas em tempo real a partir da API oficial da NASA (Mars Rover Photos).
 
-Layout Completo: Estrutura com Cabeçalho, secção de conteúdo principal e Rodapé.
+Filtros Avançados:
 
-Galeria de Imagens: Exibição das fotos em grelha, com informações detalhadas em cada card (Rover, Câmara e Data Terrestre).
+Seleção de Rover: Escolha entre os rovers Curiosity, Opportunity e Spirit.
 
-Filtros Dinâmicos:
+Seleção de Câmera: A lista de câmaras é atualizada dinamicamente com base no rover selecionado.
 
-Seleção de Rover: Permite alternar entre Curiosity, Opportunity e Spirit.
+Seleção de Data: Um seletor de data com botões de navegação rápida para explorar dias adjacentes.
 
-Seleção de Câmara: O seletor de câmara é preenchido dinamicamente com as câmaras disponíveis para o rover selecionado.
+Paginação: Navegue facilmente entre as páginas de resultados.
 
-Seleção de Data: Um seletor de data única com botões de navegação para avançar ou retroceder um dia, facilitando a exploração.
+Experiência do Utilizador Polida:
 
-Paginação: Navegação entre páginas de resultados para explorar grandes conjuntos de fotos.
+Skeleton Loading: Um elegante skeleton loader é exibido enquanto as novas imagens são carregadas, melhorando a percepção de performance.
 
-Tratamento de Erros e Robustez:
+Tratamento de Imagens Quebradas: Se a API retornar um link de imagem inválido (comum nos rovers mais antigos), um placeholder visual é exibido no lugar, evitando ícones de imagem quebrada.
 
-Lida com links de imagem quebrados retornados pela API, exibindo uma imagem de placeholder para não quebrar a interface.
+Design Responsivo: A interface adapta-se a diferentes tamanhos de ecrã, desde telemóveis a desktops.
 
-O estado da aplicação é gerido através dos parâmetros da URL, permitindo que links com filtros aplicados sejam partilhados.
+Tecnologias Utilizadas:
+Framework: Next.js 15 (App Router)
 
-Tecnologias Utilizadas
-Next.js 15 (App Router): Framework React para renderização no servidor e componentes de cliente.
+Linguagem: TypeScript
 
-TypeScript: Para garantir a segurança de tipos e a qualidade do código.
+Estilização: Tailwind CSS
 
-Tailwind CSS: Para uma estilização rápida, moderna e responsiva.
+Gestão de Estado (Cliente): Hooks do React (useState, useEffect, useTransition)
 
-Server Actions: Para uma comunicação segura e eficiente entre o cliente e o servidor na busca de dados.
+Comunicação com API: Server Actions do Next.js para chamadas seguras à API da NASA.
 
-Como Executar o Projeto Localmente
-Siga os passos abaixo para configurar e executar a aplicação no seu ambiente de desenvolvimento.
+Linting: ESLint
 
-1. Clonar o Repositório
+Como Executar o Projeto Localmente:
+Para executar este projeto no seu ambiente de desenvolvimento, siga os passos abaixo.
 
-git clone []
+Pré-requisitos:
+Node.js (versão 18 ou superior)
+
+Uma chave de API da NASA. Pode obter uma gratuitamente em api.nasa.gov.
+
+Passos para Instalação
+Clone o repositório:
+
+git clone https://github.com/Henrique-Veloso/desafio-valcann-frontend
 cd nome-da-pasta-do-projeto
 
-2. Instalar as Dependências
+Instale as dependências:
 
 npm install
 
-3. Configurar a Chave da API da NASA
-
-A aplicação requer uma chave de API para comunicar com os serviços da NASA.
+Configure as variáveis de ambiente:
 
 Crie um ficheiro chamado .env.local na raiz do projeto.
 
-Dentro deste ficheiro, adicione a sua chave de API no seguinte formato:
+Adicione a sua chave da API da NASA a este ficheiro:
 
-NASA_API_KEY=SUA_CHAVE_DE_API_AQUI
+NASA_API_KEY=SUA_CHAVE_API_VEM_AQUI
 
-4. Executar o Servidor de Desenvolvimento
+Inicie o servidor de desenvolvimento:
 
 npm run dev
 
-Abra http://localhost:3000 no seu navegador para ver a aplicação.
+Abra a aplicação no navegador:
+Aceda a http://localhost:3000 para ver a aplicação em funcionamento.
 
-Desafios Encontrados e Soluções
-Durante o desenvolvimento, foram encontrados alguns desafios relacionados com a API da NASA:
-
-Limitações da API: A API não suporta a busca por um intervalo de datas, apenas por um dia específico. A solução foi implementar um seletor de data única com botões de navegação para uma melhor experiência de exploração.
-
-Inconsistência de Dados: Especialmente para os rovers mais antigos (Spirit e Opportunity), a API retorna muitos registos de fotos com links de imagem (img_src) quebrados. Para contornar isso, foi criado um componente de imagem "inteligente" que exibe uma imagem de placeholder sempre que a imagem original falha ao carregar, garantindo a robustez da interface.
+Desenvolvido por Henrique Matheus Veloso da Silva
